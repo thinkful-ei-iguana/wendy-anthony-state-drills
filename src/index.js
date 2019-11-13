@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Bomb from "./state-drills/Bomb.js";
+import Gun from "./state-drills/RouletteGun";
 import "./index.css";
 
-ReactDOM.render(<Bomb />, document.getElementById("root"));
+ReactDOM.render(<Gun bulletInChamber={8} />, document.getElementById("root"));
