@@ -12,25 +12,26 @@ class Accordion extends React.Component {
     console.log(this.state);
     return <p key={this.props.sections.title}>{this.props.sections.content}</p>;
   };
-  render() {
-    const buttons = this.props.sections.map((section, index) => {
-      return (
-        <button key={index} onClick={this.handleClick}>
-          {section.title}
-        </button>
-      );
-    });
+
+  renderButtons() {
+    return this.props.sections.map((section, index) => (
+      <button key={index} onClick={this.handleClick}>
+        {section.title}
+      </button>
+    ));
+  }
+
+  renderContent() {
     const currentSection = this.props.sections[0];
     return (
-      <div>
-        <ul>
-          <li>
-            {buttons}
-            <div className="content">{currentSection.content}</div>
-          </li>
-        </ul>
-      </div>
+      <ul>
+        <li>
+          {this.renderButtons}
+          <div className="content">{currentSection.content}</div>
+        </li>
+      </ul>
     );
   }
 }
+
 export default Accordion;
