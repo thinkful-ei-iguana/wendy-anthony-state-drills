@@ -13,24 +13,24 @@ class Accordion extends React.Component {
     return <p key={this.props.sections.title}>{this.props.sections.content}</p>;
   };
   render() {
+    const buttons = this.props.sections.map((section, index) => {
+      return (
+        <button key={index} onClick={this.handleClick}>
+          {section.title}
+        </button>
+      );
+    });
+    const currentSection = this.props.sections[0];
     return (
       <div>
         <ul>
           <li>
-            {this.props.sections.map((section, index) => {
-              return (
-                <div key={index}>
-                  <button key={index} onClick={this.handleClick}>
-                    {section.title}
-                  </button>
-                </div>
-              );
-            })}
+            {buttons}
+            <div className="content">{currentSection.content}</div>
           </li>
         </ul>
       </div>
     );
   }
 }
-
 export default Accordion;
